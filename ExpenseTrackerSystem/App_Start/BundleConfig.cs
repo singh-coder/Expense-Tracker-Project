@@ -23,7 +23,8 @@ namespace ExpenseTrackerSystem
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-solar.css",
+                      "~/Content/font-awesome.min.css",
                       "~/Content/site.css"));
         }
     }

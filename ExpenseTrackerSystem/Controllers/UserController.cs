@@ -29,7 +29,16 @@ namespace ExpenseTrackerSystem.Controllers
             return View(user);
         }
 
-        // 3. Create new user
+        // 3. Create new User
+
+        [HttpGet]
+        public ActionResult CreateUser()
+        {
+            return View();
+        }
+
+        // 4. Post new user
+        [HttpPost]
         public ActionResult CreateUser(User user)
         {
             try
@@ -45,7 +54,7 @@ namespace ExpenseTrackerSystem.Controllers
             }
         }
 
-        // 4. Update new user
+        // 5. Update new user
         public ActionResult UpdateUser(User user)
         {
             try
@@ -61,7 +70,7 @@ namespace ExpenseTrackerSystem.Controllers
             }
         }
 
-        // 5. Delete the user
+        // 6. Delete the user
         public ActionResult DeleteUser(int id)
         {
             try

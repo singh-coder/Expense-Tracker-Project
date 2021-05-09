@@ -133,7 +133,7 @@ namespace ExpenseTrackerSystem.BusinessLogic
                 else
                 {
                     isDeleted = false;
-                    errorMessage = (string)s["Message"];
+                    errorMessage = "failed to delete";
                 }
                 return isDeleted;
             }

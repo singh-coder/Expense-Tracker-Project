@@ -10,6 +10,7 @@ namespace ExpenseTrackerSystem.Controllers
     {
         public ActionResult Index()
         {
+
             return View();
         }
 
