@@ -13,10 +13,10 @@ namespace ExpenseTrackerSystem.BusinessLogic.APIConsumerService
         private RequestResponse requestResponseHandler;
         private RestRequest requestParameter;
         readonly string endPoint = "api/login";
-        readonly string baseURL = "http://localhost:54953/";
+        //readonly string baseURL = "http://localhost:54953/";
         public LoginServiceConsumer()
         {
-            this.requestResponseHandler = new RequestResponse(baseURL);
+            this.requestResponseHandler = new RequestResponse();
         }
 
         //Method to Authenticate user

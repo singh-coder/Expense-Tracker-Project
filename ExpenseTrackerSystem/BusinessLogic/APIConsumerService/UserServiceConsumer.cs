@@ -14,10 +14,10 @@ namespace ExpenseTrackerSystem.BusinessLogic.APIConsumerService
         private RequestResponse requestResponseHandler;
         private RestRequest requestParameter;
         readonly string endPoint = "api/user";
-        readonly string baseURL = "http://localhost:54953/";
+        //readonly string baseURL = "http://localhost:54953/";
         public UserServiceConsumer()
         {
-            this.requestResponseHandler = new RequestResponse(baseURL);
+            this.requestResponseHandler = new RequestResponse();
         }
 
         // 1. Get All Users List

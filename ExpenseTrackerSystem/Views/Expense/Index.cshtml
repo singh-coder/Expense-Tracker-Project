@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ExpenseTrackerSystem.Models.Expense>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<link href="~/Content/Login.css" rel="stylesheet" />
+
+<div class="container px-4 py-5 mx-auto">
+    <div class="card card0">
+        @*<div class="d-flex flex-lg-row flex-column-reverse">*@
+            @*<div class="card card1">*@
+                <div class="row justify-content-center my-auto">
+                    <div class="col-md-8 col-10 my-5">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="row justify-content-center px-3 mb-3"> <img id="logo" src="https://i.imgur.com/PSXxjNY.png"> </div>
+
+                            <h3 class="mb-5 text-center heading">Expense Tracker Dashboard</h3>
+                            @*<h5 class="msg-info text-center">Please fill the below details to add your expenses</h5>*@
+                            <div class="row justify-content-center my-auto">
+                                <table class="table table-info">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Description</th>
+                                            <th scope="col">Type</th>
+                                            <th scope="col">Sub-Type</th>
+                                            <th scope="col">Date Purchased</th>
+                                            <th scope="col">Amount</th>
+                                            <th scope="col">Is Valuable?</th>
+                                        </tr>
+                                    </thead>   
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.Description</td>
+                                                <td>@item.TypeId</td>
+                                                <td>@item.SubTypeId</td>
+                                                <td>@item.DatePurchased</td>
+                                                <td>@item.Amount</td>
+                                                <td>@item.IsValuable</td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="row justify-content-center my-0 px-0">
+                                <input type="submit" value="Add New Expense" class="btn-block btn-color" />
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            @*</div>*@
+            @*<div class="card card2">
+                <div class="my-auto mx-md-5 px-md-5 right">
+                    <h3 class="text-white">We are more than just a company</h3> <small class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</small>
+                </div>
+            </div>*@
+        @*</div>*@
+    </div>
+</div>
+

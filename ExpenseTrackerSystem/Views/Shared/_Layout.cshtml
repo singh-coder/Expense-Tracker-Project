@@ -27,34 +27,51 @@
                 <li class="nav-item">
                     <a class="nav-link" href="@Url.Action("About", "Home")">About</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Index", "User")">Users</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Contact", "Home")">Expenses</a>
-                </li>
+                @{
+                    if (User.Identity.IsAuthenticated)
+                    {
+
+                        if (User.IsInRole("admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Index", "User")">Users</a>
+                            </li>
+                        }
+
+                        if (User.IsInRole("user"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Index", "Expense")">Expenses</a>
+                            </li>
+                        }
+                        
+                    }
+                }
+
+
                 @*<li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                    </li>*@
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+        </li>*@
             </ul>
             @{
-                if (string.IsNullOrEmpty(Convert.ToString(Session["GreetMsg"])))
+                var GreetMsg = "Hello Guest ";
+                if (User.Identity.IsAuthenticated)
                 {
-                    Session["GreetMsg"] = "Hello Guest ";
+                    GreetMsg = "Welcome " + User.Identity.Name + " ";
                 }
             }
             <form class="form-inline my-2 my-lg-0">
-                @Html.Label(Convert.ToString(Session["GreetMsg"]), new { @class = "text-white" }) &nbsp;
+                @Html.Label(GreetMsg, new { @class = "text-white" }) &nbsp;
                 @{
                     <ul class="navbar-nav mr-auto">
-                        @if (string.IsNullOrEmpty(Convert.ToString(Session["Username"])))
+                        @if (!User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
                                 <a class="nav-link btn btn-dark" href="@Url.Action("Login", "Login")">Login</a>

@@ -8,10 +8,14 @@ using System.Web.Mvc;
 
 namespace ExpenseTrackerSystem.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
         // 1. GET: User
         UserService userService = new UserService();
+
+
+        [Authorize(Roles ="admin")]
         public ActionResult Index()
         {
             string errorMessage = "";

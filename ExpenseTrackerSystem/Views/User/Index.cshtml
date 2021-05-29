@@ -6,10 +6,10 @@
 @*<link href="~/Content/Site.css" rel="stylesheet" />*@
 <div class="UserContainer">
     <h2>All Users Data</h2>
-    <p class="alert-warning text-white-50 p-2">This page is accessible only for ADMIN. Admin can add new user, edit data as requested by the user and also can delete any user record.</p>
+    <p class=" alert alert-danger text-white p-2">This page is accessible only for ADMIN. Admin can add new user, edit data as requested by the user and also can delete any user record.</p>
 
     <p>
-        @Html.ActionLink("Create New", "CreateUser")
+        @Html.ActionLink("Create New", "CreateUser",null, new { @class = "btn btn-success" })
     </p>
     <table class="table table-dark tblUser">
         <tr>

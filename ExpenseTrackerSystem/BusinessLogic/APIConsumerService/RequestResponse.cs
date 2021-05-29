@@ -11,11 +11,10 @@ namespace ExpenseTrackerSystem.BusinessLogic.APIConsumerService
     public class RequestResponse
     {
         private RestClient client;
-        private string _baseURL = string.Empty;
-        public RequestResponse( string baseURL)
+        private string _baseURL = "http://localhost:54953/";
+        public RequestResponse()
         {
-            this._baseURL = baseURL;
-            client = new RestClient(baseURL);
+            client = new RestClient(_baseURL);
         }
 
         public IRestResponse SendRequestList(RestRequest request)

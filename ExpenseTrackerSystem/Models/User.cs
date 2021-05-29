@@ -12,7 +12,7 @@ namespace ExpenseTrackerSystem.Models
         public string Password { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public Nullable<bool> isAdmin { get; set; }
+        public bool isAdmin { get; set; } = false;
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Nullable<bool> isActive { get; set; }
